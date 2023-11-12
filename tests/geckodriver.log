@@ -1,0 +1,104 @@
+1699796431212	geckodriver	INFO	Listening on 127.0.0.1:61042
+1699796434284	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "61043" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Sana\\AppData\\Local\\Temp\\rust_mozprofileX3YeS8"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1699796434698	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1699796434797	Marionette	INFO	Listening on port 61056
+WebDriver BiDi listening on ws://127.0.0.1:61043
+Read port: 61056
+1699796435037	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:61043/devtools/browser/d03651e2-0661-4736-9128-78d862c90ae6
+console.error: ({})
+1699796438601	Marionette	INFO	Stopped listening on port 61056
+Dynamically enable window occlusion 1
+console.error: services.settings: 
+  main/partitioning-exempt-urls Signature failed  TypeError: NetworkError: Network request failed
+console.error: (new NetworkError("Network error: TypeError: NetworkError: Network request failed", "resource://services-settings/RemoteSettingsClient.sys.mjs", 107))
+1699796441861	geckodriver	INFO	Listening on 127.0.0.1:61086
+1699796444906	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "61087" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Sana\\AppData\\Local\\Temp\\rust_mozprofile54Qz5J"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1699796445297	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1699796445393	Marionette	INFO	Listening on port 61097
+WebDriver BiDi listening on ws://127.0.0.1:61087
+Read port: 61097
+1699796445644	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:61087/devtools/browser/14a9aac2-4cd0-4823-bffb-514e221398df
+console.error: ({})
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://sso.passport.yandex.ru."
+1699796448995	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1699796449171	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1699796449293	Marionette	INFO	Stopped listening on port 61097
+Dynamically enable window occlusion 1
+console.error: services.settings: 
+  main/partitioning-exempt-urls Signature failed  TypeError: NetworkError: Network request failed
+console.error: (new NetworkError("Network error: TypeError: NetworkError: Network request failed", "resource://services-settings/RemoteSettingsClient.sys.mjs", 107))
+1699796941712	geckodriver	INFO	Listening on 127.0.0.1:61517
+1699796944770	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "61518" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Sana\\AppData\\Local\\Temp\\rust_mozprofileCCkJLR"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1699796945164	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1699796945260	Marionette	INFO	Listening on port 61527
+WebDriver BiDi listening on ws://127.0.0.1:61518
+Read port: 61527
+1699796945481	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:61518/devtools/browser/0d0c7c1d-883b-4236-b34c-1fb2169f74de
+console.error: ({})
+1699796948892	Marionette	INFO	Stopped listening on port 61527
+Dynamically enable window occlusion 1
+1699796952299	geckodriver	INFO	Listening on 127.0.0.1:61552
+1699796955346	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "61553" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Sana\\AppData\\Local\\Temp\\rust_mozprofilemSt7pQ"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1699796955757	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1699796955859	Marionette	INFO	Listening on port 61564
+WebDriver BiDi listening on ws://127.0.0.1:61553
+Read port: 61564
+1699796956112	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:61553/devtools/browser/0372e72b-7c8c-45e6-94c2-1696d73566ec
+console.error: ({})
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://sso.passport.yandex.ru."
+1699796959902	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1699796960201	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1699796960691	Marionette	INFO	Stopped listening on port 61564
+JavaScript warning: https://dzen.ru/?yredirect=true, line 210: Script terminated by timeout at:
+@https://dzen.ru/?yredirect=true:210:7297
+@https://dzen.ru/?yredirect=true:210:7333
+@https://dzen.ru/?yredirect=true:210:1152263
+
+Dynamically enable window occlusion 1
+1699817813089	geckodriver	INFO	Listening on 127.0.0.1:64625
+1699817816154	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "64626" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Sana\\AppData\\Local\\Temp\\rust_mozprofileANdHSA"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1699817816611	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1699817816707	Marionette	INFO	Listening on port 64635
+Read port: 64635
+WebDriver BiDi listening on ws://127.0.0.1:64626
+1699817816802	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:64626/devtools/browser/fd398c11-f18a-4efe-89f6-9dd05c95d8f8
+console.error: ({})
+1699817820417	Marionette	INFO	Stopped listening on port 64635
+Dynamically enable window occlusion 1
+1699817823903	geckodriver	INFO	Listening on 127.0.0.1:64666
+1699817826939	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "64667" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Sana\\AppData\\Local\\Temp\\rust_mozprofileFQ77Zr"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1699817827368	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1699817827467	Marionette	INFO	Listening on port 64676
+WebDriver BiDi listening on ws://127.0.0.1:64667
+Read port: 64676
+1699817827707	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:64667/devtools/browser/6bb4fb9a-7a3b-4cd5-820a-2fcf4e98ff5e
+console.error: ({})
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://sso.passport.yandex.ru."
+1699817831384	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1699817831525	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1699817831647	Marionette	INFO	Stopped listening on port 64676
+Dynamically enable window occlusion 1
