@@ -6,7 +6,7 @@ from pages.main_page import MainPage
 
 
 @pytest.mark.usefixtures("driver")
-class TestMainPages(BasePage):
+class TestMainPages:
     @pytest.mark.parametrize("index,text", ListData.QUESTIONS_LIST)
     def test_get_answer_on_question(self, driver, index, text):
         page = BasePage(driver)

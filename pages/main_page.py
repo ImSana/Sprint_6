@@ -7,7 +7,7 @@ from pages.base_page import BasePage
 
 class MainPage(BasePage):
 
-    def click_cookie_button(self):
+    def click_cookie_button(self, driver):
         self.driver.find_element(*MainPageLocators.COOKIE_BUTTON).click()
 
     @allure.step('Пролистать до раздела "Вопросы о важном"')
