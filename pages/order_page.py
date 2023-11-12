@@ -6,21 +6,6 @@ from locators.order_page_locators import OrderPageLocators
 from pages.base_page import BasePage
 
 
-@allure.step('Нажать на вопрос')
-def click_on_question(self, index):
-    questions = self.get_questions()
-    questions[index - 1].click()
-
-
-@allure.step('Получить текст ответа')
-def get_answer_text(self):
-    return self.driver.find_element(*MainPageLocators.ANSWER).text
-
-
-def wait_for_get_answer(self):
-    WebDriverWait(self.driver, 25).until(ec.visibility_of_element_located(MainPageLocators.ANSWER))
-
-
 @allure.step('Пролистать до кнопки "Заказать" на странице')
 def scroll_to_order_button(self):
     button = self.driver.find_element(*MainPageLocators.ORDER_BUTTON_MAIN_PAGE)

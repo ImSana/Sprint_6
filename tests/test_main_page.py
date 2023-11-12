@@ -1,5 +1,4 @@
 import pytest
-
 from data.data import ListData
 from data.urls import DataUrls
 from pages.base_page import BasePage

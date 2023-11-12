@@ -1,4 +1,3 @@
-from data import data
 from data.data import RentalData
 from pages.order_page import OrderPages
 
