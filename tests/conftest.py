@@ -2,12 +2,12 @@ import pytest
 import random
 import datetime
 from selenium import webdriver
-from selenium.webdriver.firefox.options import Options
+
 
 @pytest.fixture
 def driver():
     firefox_options = webdriver.FirefoxOptions()
-    # firefox_options.add_argument("--headless")
+    firefox_options.add_argument("--headless")
     driver = webdriver.Firefox(options=firefox_options)
     driver.set_window_size(1920, 1080)
     driver.delete_all_cookies()

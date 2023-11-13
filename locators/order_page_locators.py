@@ -7,6 +7,12 @@ class OrderPageLocators:
     BLACK_COLOR_LOCATOR = By.ID, "black"  # Черный цвет
     GREY_COLOR_LOCATOR = By.ID, "grey"  # Серый цвет
     ORDER_BUTTON = By.XPATH, "//div[contains(@class, 'Order_Buttons')]//button[text()='Заказать']"  # Кнопка "Заказать"
+    NEXT_BUTTON = By.XPATH, "//button[text()='Далее']"  # Кнопка "Далее"
+    ADDRESS_FIELD = By.XPATH, "//input[@placeholder='* Адрес: куда привезти заказ']"  # Поле ввода адреса
+    STATION_FIELD = By.XPATH, "//input[@placeholder='* Станция метро']"  # Поле выбора метро
+    STATION_DROPDOWN = By.XPATH, "//div[contains(@class, 'select-search__select')]/ul/li"  # Список метро
+    PHONE_NUMBER_FIELD = By.XPATH, "//input[@placeholder='* Телефон: на него позвонит курьер']"  # Поле ввода номера
+    ADDRESS_FIELD = By.XPATH, "//input[@placeholder='* Адрес: куда привезти заказ']"  # Поле ввода адреса
 
     COMMENT_FIELD = By.XPATH, "//input[@placeholder='Комментарий для курьера']"  # Поле комментария
     CONFIRM = By.XPATH, "//div[text()='Хотите оформить заказ?']"  # Диалог подтверрждения

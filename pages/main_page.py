@@ -19,18 +19,15 @@ class MainPage(BasePage):
     def get_questions(self):
         return self.driver.find_elements(*MainPageLocators.QUESTIONS)
 
+    @allure.step('Нажать на вопрос')
+    def click_on_question(self, index):
+        questions = self.get_questions()
+        questions[index - 1].click()
 
-@allure.step('Нажать на вопрос')
-def click_on_question(self, index):
-    questions = self.get_questions()
-    questions[index - 1].click()
+    @allure.step('Получить текст ответа')
+    def get_answer_text(self):
+        return self.driver.find_element(*MainPageLocators.ANSWER).text
 
-
-@allure.step('Получить текст ответа')
-def get_answer_text(self):
-    return self.driver.find_element(*MainPageLocators.ANSWER).text
-
-
-def wait_for_get_answer(self):
-    WebDriverWait(self.driver, 25).until(ec.visibility_of_element_located(MainPageLocators.ANSWER))
+    def wait_for_get_answer(self):
+        WebDriverWait(self.driver, 25).until(ec.visibility_of_element_located(MainPageLocators.ANSWER))
 

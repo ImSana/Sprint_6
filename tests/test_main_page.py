@@ -1,13 +1,14 @@
+import allure
 import pytest
+from pages.main_page import MainPage
+from pages.base_page import BasePage
 from data.data import ListData
 from data.urls import DataUrls
-from pages.base_page import BasePage
-from pages.main_page import MainPage
 
 
-@pytest.mark.usefixtures("driver")
+@pytest.mark.fixture('driver')
 class TestMainPages:
-    @pytest.mark.parametrize("index,text", ListData.QUESTIONS_LIST)
+    @pytest.mark.parametrize('index,text', ListData.QUESTIONS_LIST)
     def test_get_answer_on_question(self, driver, index, text):
         page = BasePage(driver)
         page.open_page(DataUrls.SCOOTER_URL)
