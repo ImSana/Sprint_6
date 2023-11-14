@@ -21,3 +21,5 @@ class BasePage:
     def set_text_to_element(self, locator, text):
         self.driver.find_element(*locator).send_keys(text)
 
+    def open_page(self, page):
+        self.driver.get(page)

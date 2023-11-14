@@ -21,5 +21,8 @@ class ListData:
 
 
 class RentalData:
-    DATA_1 = {'date': '11.12.2023', 'day': 'one', 'color': 'black', 'comment': 'Позвонить заранее'}
-    DATA_2 = {'date': '10.12.2023', 'day': 'two', 'color': 'grey', 'comment': 'no call'}
+    date_1 = '11.12.2023'
+    day_1 = 'one'
+    color_1 = 'black'
+    comment_1 = 'Позвонить заранее'
+    # DATA_2 = {'date': '10.12.2023', 'day': 'two', 'color': 'grey', 'comment': 'no call'}

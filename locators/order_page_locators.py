@@ -4,8 +4,6 @@ from selenium.webdriver.common.by import By
 class OrderPageLocators:
     NAME_FIELD_LOCATOR = By.XPATH, "//input[@placeholder='* Имя']"  # Поле ввода имени
     LASTNAME_FIELD_LOCATOR = By.XPATH, "//input[@placeholder='* Фамилия']"  # Поле ввода фамилии
-    BLACK_COLOR_LOCATOR = By.ID, "black"  # Черный цвет
-    GREY_COLOR_LOCATOR = By.ID, "grey"  # Серый цвет
     ORDER_BUTTON = By.XPATH, "//div[contains(@class, 'Order_Buttons')]//button[text()='Заказать']"  # Кнопка "Заказать"
     NEXT_BUTTON = By.XPATH, "//button[text()='Далее']"  # Кнопка "Далее"
     ADDRESS_FIELD = By.XPATH, "//input[@placeholder='* Адрес: куда привезти заказ']"  # Поле ввода адреса
@@ -13,7 +11,8 @@ class OrderPageLocators:
     STATION_DROPDOWN = By.XPATH, "//div[contains(@class, 'select-search__select')]/ul/li"  # Список метро
     PHONE_NUMBER_FIELD = By.XPATH, "//input[@placeholder='* Телефон: на него позвонит курьер']"  # Поле ввода номера
     ADDRESS_FIELD = By.XPATH, "//input[@placeholder='* Адрес: куда привезти заказ']"  # Поле ввода адреса
-
+    BLACK_COLOR_LOCATOR = By.ID, "black"  # Черный цвет
+    GREY_COLOR_LOCATOR = By.ID, "grey"  # Серый цвет
     COMMENT_FIELD = By.XPATH, "//input[@placeholder='Комментарий для курьера']"  # Поле комментария
     CONFIRM = By.XPATH, "//div[text()='Хотите оформить заказ?']"  # Диалог подтверрждения
     YES_BUTTON = By.XPATH, "//button[text()='Да']"  # Кнопка "Да"
@@ -30,6 +29,9 @@ class OrderPageLocators:
     RENTAL_PERIOD_DROPDOWN = By.XPATH, "//div[@class='Dropdown-menu']"  # Периоды
     ONE_DAY = By.XPATH, "//div[contains(@class, 'Dropdown-option') and (text()='сутки')]"  # День
     TWO_DAY = By.XPATH, "//div[contains(@class, 'Dropdown-option') and (text()='двое суток')]"  # Два дня
+
+    BLACK_CHECKBOX = By.ID, "black"  # Черный цвет
+    GREY_CHECKBOX = By.ID, "grey"  # Серый цвет
 
     COMMENT_FIELD = By.XPATH, "//input[@placeholder='Комментарий для курьера']"  # Поле комментария
     CONFIRM = By.XPATH, "//div[text()='Хотите оформить заказ?']"  # Диалог подтверрждения

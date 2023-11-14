@@ -1,4 +1,5 @@
 import allure
+from selenium.webdriver import Keys
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from locators.base_page_locators import BasePageLocators
@@ -6,27 +7,6 @@ from locators.main_page_locators import MainPageLocators
 from locators.order_page_locators import OrderPageLocators
 from pages.base_page import BasePage
 
-
-# class OrderPage(BasePage):
-#
-#     @allure.step('Пролистать до кнопки "Заказать" на странице')
-#     def scroll_to_order_button(self):
-#         button = self.driver.find_element(*MainPageLocators.ORDER_BUTTON_MAIN_PAGE)
-#         self.driver.execute_script("arguments[0].scrollIntoView();", button)
-#         WebDriverWait(self.driver, 10).until(ec.visibility_of_element_located(MainPageLocators.ORDER_BUTTON_MAIN_PAGE))
-#
-#     @allure.step('Клик по кнопке "Заказать" на странице')
-#     def click_order_button(self):
-#         self.driver.find_element(*MainPageLocators.ORDER_BUTTON_MAIN_PAGE).click()
-#
-#     @allure.step('Клик по кнопке "Заказать" в шапке')
-#     def click_order_button_in_header(self):
-#         self.driver.find_element(*MainPageLocators.ORDER_BUTTON_IN_HEADER).click()
-#
-#     @allure.step('Получить текст заголовка главной страницы')
-#     def get_main_header_text(self):
-#         return self.driver.find_element(*MainPageLocators.HEADER_TEXT).text
-#
 class OrderPages(BasePage):
 
     @allure.step("Заполняем поле с именем")
@@ -42,8 +22,11 @@ class OrderPages(BasePage):
         self.set_text_to_element(OrderPageLocators.ADDRESS_FIELD, address_1)
 
     @allure.step("Заполняем поле с метро")
-    def set_station_to_field(self, station_1):
-        self.set_text_to_element(OrderPageLocators.STATION_FIELD, station_1)
+    def set_station(self, station):
+        self.driver.find_element(*OrderPageLocators.STATION_FIELD).send_keys(station)
+        WebDriverWait(self.driver, 10).until(ec.visibility_of_element_located(OrderPageLocators.STATION_DROPDOWN))
+        self.driver.find_element(*OrderPageLocators.STATION_DROPDOWN).click()
+        WebDriverWait(self.driver, 10).until(ec.invisibility_of_element(OrderPageLocators.STATION_DROPDOWN))
 
     @allure.step("Заполняем поле с телефоном")
     def set_number_to_field(self, number_1):
@@ -52,34 +35,55 @@ class OrderPages(BasePage):
     def click_to_next_button(self):
         self.click_to_element(OrderPageLocators.NEXT_BUTTON)
 
-    @allure.step("Когда привезти")
-    def set_number_to_field(self, number_1):
-        self.set_text_to_element(OrderPageLocators.ADDRESS_FIELD, number_1)
-
-    # @allure.step("Выбираем самокат чёрного цвета")
-    # def set_black_color(self):
-    #     self.click_to_element(OrderPageLocators.BLACK_COLOR_LOCATOR)
-
-    # @allure.step("Выбираем самокат серого цвета")
-    # def set_grey_color(self):
-    #     self.click_to_element(OrderPageLocators.GREY_COLOR_LOCATOR)
-
-    @allure.step("Заказать")
-    def click_to_order_button(self):
-        self.click_to_element(OrderPageLocators.ORDER_BUTTON)
-
-    @allure.step("Проверяем что появилось окно с заказом")
-    def check_success_order(self):
-        return self.find_my_element(OrderPageLocators.ORDER_COMPLETED)
-
-    def create_order(self, name_1, lastname_1, address_1, station_1):
+    def create_order(self, name_1, lastname_1, address_1, station_1, number_1):
         self.set_name_to_field(name_1)
         self.set_lastname_to_field(lastname_1)
         self.set_address_to_field(address_1)
-        self.set_station_to_field(station_1)
+        self.set_station(station_1)
+        self.set_number_to_field(number_1)
         self.click_to_next_button()
-        self.set_black_color()
-        self.click_to_order_button()
+
+    def wait_for_rent_form(self):
+        WebDriverWait(self.driver, 10).until(ec.visibility_of_element_located(OrderPageLocators.RENT_FORM))
+
+    def set_date(self, date):
+        self.driver.find_element(*OrderPageLocators.DATE_FIELD).send_keys(date)
+        WebDriverWait(self.driver, 10).until(ec.visibility_of_element_located(OrderPageLocators.CALENDAR))
+        self.driver.find_element(*OrderPageLocators.DATE_FIELD).send_keys(Keys.ENTER)
+        WebDriverWait(self.driver, 10).until(ec.invisibility_of_element(OrderPageLocators.CALENDAR))
+
+    def select_rental_period(self, period):
+        self.driver.find_element(*OrderPageLocators.RENTAL_PERIOD).click()
+        WebDriverWait(self.driver, 10).until(ec.visibility_of_element_located(OrderPageLocators.RENTAL_PERIOD_DROPDOWN))
+        self.driver.find_element(*period).click()
+        WebDriverWait(self.driver, 10).until(ec.invisibility_of_element(OrderPageLocators.RENTAL_PERIOD_DROPDOWN))
+
+    @allure.step("Выбираем самокат чёрного цвета")
+    def set_black_color(self):
+        self.click_to_element(OrderPageLocators.BLACK_COLOR_LOCATOR)
+
+    def set_comment(self, comment):
+        self.driver.find_element(*OrderPageLocators.COMMENT_FIELD).send_keys(comment)
+
+    def click_order_button(self):
+        WebDriverWait(self.driver, 10).until(ec.element_to_be_clickable(OrderPageLocators.ORDER_BUTTON))
+        self.driver.find_element(*OrderPageLocators.ORDER_BUTTON).click()
+
+    @allure.step('Заполнить раздел "Про аренду"')
+    def input_rental_information(self, date, rental_data):
+        color_checkbox = {"black": OrderPageLocators.BLACK_CHECKBOX, "grey": OrderPageLocators.GREY_CHECKBOX}
+        day_period = {"one": OrderPageLocators.ONE_DAY, "two": OrderPageLocators.TWO_DAY}
+        self.set_date(date)
+        self.select_rental_period(day_period.get(rental_data.get('day')))
+        self.set_black_color(color_checkbox.get(rental_data.get('color')))
+        self.set_comment(rental_data.get('comment'))
+        self.click_order_button()
+
+    class RentalData:
+        date_1 = '11.12.2023'
+        day_1 = 'one'
+        color_1 = 'black'
+        comment_1 = 'Позвонить заранее'
 
     @allure.step('Клик по логотипу "Яндекс"')
     def click_yandex_logo(self):
@@ -99,3 +103,20 @@ class OrderPages(BasePage):
     def open_page(self, page):
         self.driver.get(page)
 
+
+
+
+    @allure.step("Выбираем самокат серого цвета")
+    def set_grey_color(self):
+        self.click_to_element(OrderPageLocators.GREY_COLOR_LOCATOR)
+
+
+
+
+    @allure.step("Далее")
+    def click_to_order_button(self):
+        self.click_to_element(OrderPageLocators.NEXT_BUTTON)
+
+    @allure.step("Проверяем что появилось окно с заказом")
+    def check_success_order(self):
+        return self.find_my_element(OrderPageLocators.ORDER_COMPLETED)

@@ -10,8 +10,8 @@ from pages.order_page import OrderPages
 @pytest.mark.fixture('driver')
 class TestOrderButton:
 
-    def test_create_order_on_header_button_success(driver):
-        OrderPages(driver).create_order (persons.Persons.name_1, persons.Persons.lastname_1, persons.Persons.address_1)
+    def test_create_order_on_header_button_success(self, driver):
+        OrderPages(driver).create_order(persons.Persons.name_1, persons.Persons.lastname_1, persons.Persons.address_1, persons.Persons.station_1, persons.Persons.number_1)
         assert OrderPages(driver).check_success_order()
 
     def test_create_order_on_finish_button_success(driver):

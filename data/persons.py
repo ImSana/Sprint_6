@@ -9,3 +9,4 @@ class Persons:
     address_1 = 'Белогвардейская ул. 25'
     station_1 = 'Бауманская'
     number_1 = '70000000000'
+
