@@ -21,6 +21,11 @@ class ListData:
 
 class Clients:
     CLIENT_1 = {'name': 'Василий', 'lastname': 'Чапаев', 'address': 'Белогвардейская ул. 25',
-                 'station': 'Бауманская', 'number': '70000000000'}
+                 'station': 'Бауманская', 'number': '79822659988'}
     CLIENT_2 = {'name': 'Анна', 'lastname': 'Попова', 'address': 'Леонова ул. 12',
                  'station': 'Саларьево', 'number': '79999999999'}
+
+
+class RentalData:
+    DATA_1 = {'date': '11.12.2023', 'day': 'one', 'color': 'black', 'comment': 'Звоните, как подъедете'}
+    DATA_2 = {'date': '10.12.2023', 'day': 'two', 'color': 'grey', 'comment': 'Оставьте перед дверью'}

@@ -6,7 +6,7 @@ from selenium.webdriver.support import expected_conditions as ec
 from locators.main_page_locators import MainPageLocators
 from locators.order_page_locators import OrderPageLocators
 from pages.base_page import BasePage
-
+from data.data import RentalData
 
 class OrderPages(BasePage):
 
@@ -35,11 +35,13 @@ class OrderPages(BasePage):
     def set_number_to_field(self, number):
         self.set_text_to_element(OrderPageLocators.PHONE_NUMBER_FIELD, number)
 
+    @allure.step('Клик по кнопке "Заказать" в шапке')
     def click_order_button_in_header(self):
-        self.click_to_element(OrderPageLocators.ORDER_BUTTON_IN_HEADER)
+        self.driver.find_element(*OrderPageLocators.ORDER_BUTTON_IN_HEADER).click()
 
-    def click_to_next_button(self):
-        self.click_to_element(OrderPageLocators.NEXT_BUTTON)
+    def click_next_button(self):
+        WebDriverWait(self.driver, 10).until(ec.element_to_be_clickable(OrderPageLocators.NEXT_BUTTON))
+        self.driver.find_element(*OrderPageLocators.NEXT_BUTTON).click()
 
     def create_order(self, client):
         self.set_name_to_field(client.get('name'))
@@ -47,7 +49,7 @@ class OrderPages(BasePage):
         self.set_address_to_field(client.get('address'))
         self.set_station(client.get('station'))
         self.set_number_to_field(client.get('number'))
-        self.click_to_next_button()
+        # self.click_to_next_button()
 
     def wait_for_rent_form(self):
         WebDriverWait(self.driver, 10).until(ec.visibility_of_element_located(OrderPageLocators.RENT_FORM))
@@ -61,12 +63,12 @@ class OrderPages(BasePage):
     def select_rental_period(self, period):
         self.driver.find_element(*OrderPageLocators.RENTAL_PERIOD).click()
         WebDriverWait(self.driver, 10).until(ec.visibility_of_element_located(OrderPageLocators.RENTAL_PERIOD_DROPDOWN))
-        self.driver.find_element(*period).click()
-        WebDriverWait(self.driver, 10).until(ec.invisibility_of_element(OrderPageLocators.RENTAL_PERIOD_DROPDOWN))
+        self.driver.find_element(*OrderPageLocators.ONE_DAY).click()
+        # WebDriverWait(self.driver, 10).until(ec.invisibility_of_element(OrderPageLocators.RENTAL_PERIOD_DROPDOWN))
 
     @allure.step("Выбираем самокат чёрного цвета")
-    def set_black_color(self):
-        self.click_to_element(OrderPageLocators.BLACK_COLOR_LOCATOR)
+    def click_checkbox(self, color):
+        self.driver.find_element(*color).click()
 
     def set_comment(self, comment):
         self.driver.find_element(*OrderPageLocators.COMMENT_FIELD).send_keys(comment)
@@ -79,9 +81,9 @@ class OrderPages(BasePage):
     def input_rental_information(self, rental_data):
         color_checkbox = {"black": OrderPageLocators.BLACK_CHECKBOX, "grey": OrderPageLocators.GREY_CHECKBOX}
         day_period = {"one": OrderPageLocators.ONE_DAY, "two": OrderPageLocators.TWO_DAY}
-        self.set_date('date')
+        self.set_date(rental_data.get('date'))
         self.select_rental_period(day_period.get(rental_data.get('day')))
-        self.set_black_color(color_checkbox.get(rental_data.get('color')))
+        self.click_checkbox(color_checkbox.get(rental_data.get('color')))
         self.set_comment(rental_data.get('comment'))
         self.click_order_button()
 

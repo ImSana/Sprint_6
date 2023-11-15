@@ -15,6 +15,7 @@ class TestOrderButton:
         order_pages.click_cookie_button()
         order_pages.click_order_button_in_header()
         order_pages.create_order(Clients.CLIENT_1)
+        order_pages.click_next_button()
         order_pages.wait_for_rent_form()
         order_pages.input_rental_information(RentalData.DATA_1)
         order_pages.wait_for_confirm()
