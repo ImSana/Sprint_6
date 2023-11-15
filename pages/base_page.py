@@ -1,7 +1,6 @@
 import allure
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec, expected_conditions
-from locators.base_page_locators import BasePageLocators
 
 
 class BasePage:
@@ -14,9 +13,11 @@ class BasePage:
             expected_conditions.visibility_of_element_located(*locator))
 
     def click_to_element(self, locator):
+        # WebDriverWait(self.driver, 5).until(
+        #     expected_conditions.element_to_be_clickable(*locator))
+        # self.driver.find_element(*locator).click()
         WebDriverWait(self.driver, 5).until(
-            expected_conditions.element_to_be_clickable(*locator))
-        self.driver.find_element(*locator).click()
+                expected_conditions.element_to_be_clickable(*locator))
 
     def set_text_to_element(self, locator, text):
         self.driver.find_element(*locator).send_keys(text)

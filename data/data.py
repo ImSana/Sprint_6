@@ -1,5 +1,4 @@
 class TextData:
-    HEADER_TEXT = 'Самокат\nна пару дней\nПривезём его прямо к вашей двери,\nа когда накатаетесь — заберём'
     SUCCESSFUL_ORDER_TEXT = 'Заказ оформлен'
 
 
@@ -20,6 +19,8 @@ class ListData:
     ]
 
 
-class RentalData:
-    DATA_1 = {'date': '11.12.2023', 'day': 'one', 'color': 'black', 'comment': 'no call'}
-    DATA_2 = {'date': '10.12.2023', 'day': 'two', 'color': 'grey', 'comment': 'no call'}
+class Clients:
+    CLIENT_1 = {'name': 'Василий', 'lastname': 'Чапаев', 'address': 'Белогвардейская ул. 25',
+                 'station': 'Бауманская', 'number': '70000000000'}
+    CLIENT_2 = {'name': 'Анна', 'lastname': 'Попова', 'address': 'Леонова ул. 12',
+                 'station': 'Саларьево', 'number': '79999999999'}

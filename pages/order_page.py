@@ -2,24 +2,27 @@ import allure
 from selenium.webdriver import Keys
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
-from locators.base_page_locators import BasePageLocators
+# from locators.base_page_locators import BasePageLocators
 from locators.main_page_locators import MainPageLocators
 from locators.order_page_locators import OrderPageLocators
 from pages.base_page import BasePage
 
+
 class OrderPages(BasePage):
 
+    def click_cookie_button(self):
+        self.driver.find_element(*MainPageLocators.COOKIE_BUTTON).click()
     @allure.step("Заполняем поле с именем")
-    def set_name_to_field(self, name_1):
-        self.set_text_to_element(OrderPageLocators.NAME_FIELD_LOCATOR, name_1)
+    def set_name_to_field(self, name):
+        self.set_text_to_element(OrderPageLocators.NAME_FIELD_LOCATOR, name)
 
     @allure.step("Заполняем поле с фамилией")
-    def set_lastname_to_field(self, lastname_1):
-        self.set_text_to_element(OrderPageLocators.LASTNAME_FIELD_LOCATOR, lastname_1)
+    def set_lastname_to_field(self, lastname):
+        self.set_text_to_element(OrderPageLocators.LASTNAME_FIELD_LOCATOR, lastname)
 
     @allure.step("Заполняем поле с адресом")
-    def set_address_to_field(self, address_1):
-        self.set_text_to_element(OrderPageLocators.ADDRESS_FIELD, address_1)
+    def set_address_to_field(self, address):
+        self.set_text_to_element(OrderPageLocators.ADDRESS_FIELD, address)
 
     @allure.step("Заполняем поле с метро")
     def set_station(self, station):
@@ -29,8 +32,11 @@ class OrderPages(BasePage):
         WebDriverWait(self.driver, 10).until(ec.invisibility_of_element(OrderPageLocators.STATION_DROPDOWN))
 
     @allure.step("Заполняем поле с телефоном")
-    def set_number_to_field(self, number_1):
-        self.set_text_to_element(OrderPageLocators.PHONE_NUMBER_FIELD, number_1)
+    def set_number_to_field(self, number):
+        self.set_text_to_element(OrderPageLocators.PHONE_NUMBER_FIELD, number)
+
+    def click_order_button_in_header(self):
+        self.click_to_element(OrderPageLocators.ORDER_BUTTON_IN_HEADER)
 
     def click_to_next_button(self):
         self.click_to_element(OrderPageLocators.NEXT_BUTTON)
@@ -99,7 +105,7 @@ class OrderPages(BasePage):
 
     @allure.step('Клик по логотипу "Яндекс"')
     def click_yandex_logo(self):
-        self.driver.find_element(*BasePageLocators.YA_LOGO).click()
+        self.driver.find_element(*OrderPageLocators.YA_LOGO).click()
 
     def wait_for_new_tab(self, number):
         WebDriverWait(self.driver, 10).until(ec.number_of_windows_to_be(number))
@@ -109,5 +115,5 @@ class OrderPages(BasePage):
 
     @allure.step('Клик по логотипу "Самокат"')
     def click_scooter_logo(self):
-        self.driver.find_element(*BasePageLocators.SCOOTER_LOGO).click()
+        self.driver.find_element(*OrderPageLocators.SCOOTER_LOGO).click()
 
