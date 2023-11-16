@@ -43,6 +43,7 @@ class OrderPages(BasePage):
     def click_order_button_in_footer(self):
         self.driver.find_element(*OrderPageLocators.ORDER_BUTTON_IN_FOOTER).click()
 
+    @allure.step('Клик по кнопке "Далее"')
     def click_next_button(self):
         WebDriverWait(self.driver, 10).until(ec.element_to_be_clickable(OrderPageLocators.NEXT_BUTTON))
         self.driver.find_element(*OrderPageLocators.NEXT_BUTTON).click()
@@ -57,6 +58,7 @@ class OrderPages(BasePage):
     def wait_for_rent_form(self):
         WebDriverWait(self.driver, 10).until(ec.visibility_of_element_located(OrderPageLocators.RENT_FORM))
 
+    @allure.step('Заполняем поле "Дата"')
     def set_date(self, date):
         self.driver.find_element(*OrderPageLocators.DATE_FIELD).send_keys(date)
         WebDriverWait(self.driver, 10).until(ec.visibility_of_element_located(OrderPageLocators.CALENDAR))
@@ -67,15 +69,16 @@ class OrderPages(BasePage):
         self.driver.find_element(*OrderPageLocators.RENTAL_PERIOD).click()
         WebDriverWait(self.driver, 10).until(ec.visibility_of_element_located(OrderPageLocators.RENTAL_PERIOD_DROPDOWN))
         self.driver.find_element(*OrderPageLocators.ONE_DAY).click()
-        # WebDriverWait(self.driver, 10).until(ec.invisibility_of_element(OrderPageLocators.RENTAL_PERIOD_DROPDOWN))
 
     @allure.step("Выбираем самокат чёрного цвета")
     def click_checkbox(self, color):
         self.driver.find_element(*color).click()
 
+    @allure.step('Заполняем поле "Комментарий"')
     def set_comment(self, comment):
         self.driver.find_element(*OrderPageLocators.COMMENT_FIELD).send_keys(comment)
 
+    @allure.step('Клик по кнопке "Заказ"')
     def click_order_button(self):
         WebDriverWait(self.driver, 10).until(ec.element_to_be_clickable(OrderPageLocators.ORDER_BUTTON))
         self.driver.find_element(*OrderPageLocators.ORDER_BUTTON).click()
@@ -105,15 +108,9 @@ class OrderPages(BasePage):
         new_order_text = self.driver.find_element(*OrderPageLocators.ORDER_COMPLETED).text
         return new_order_text
 
-    def click_order_status_button(self):
-        self.driver.find_element(*OrderPageLocators.ORDER_STATUS_BUTTON).click()
-
     def wait_for_new_tab(self, number):
         WebDriverWait(self.driver, 10).until(ec.number_of_windows_to_be(number))
 
     def wait_for_page_load(self, url):
         WebDriverWait(self.driver, 10).until(ec.url_to_be(url))
 
-    @allure.step('Клик по логотипу "Самокат"')
-    def click_scooter_logo(self):
-        self.driver.find_element(*OrderPageLocators.SCOOTER_LOGO).click()

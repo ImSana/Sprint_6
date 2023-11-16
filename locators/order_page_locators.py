@@ -10,10 +10,8 @@ class OrderPageLocators:
     STATION_FIELD = By.XPATH, "//input[@placeholder='* Станция метро']"  # Поле выбора метро
     STATION_DROPDOWN = By.XPATH, "//div[contains(@class, 'select-search__select')]/ul/li"  # Список метро
     PHONE_NUMBER_FIELD = By.XPATH, "//input[@placeholder='* Телефон: на него позвонит курьер']"  # Поле ввода номера
-    BLACK_COLOR_LOCATOR = By.ID, "black"  # Черный цвет
-    GREY_COLOR_LOCATOR = By.ID, "grey"  # Серый цвет
     COMMENT_FIELD = By.XPATH, "//input[@placeholder='Комментарий для курьера']"  # Поле комментария
-    CONFIRM = By.XPATH, "//div[text()='Хотите оформить заказ?']"  # Диалог подтверрждения
+    CONFIRM = By.XPATH, "//div[text()='Хотите оформить заказ?']"  # Диалог подтверждения
     YES_BUTTON = By.XPATH, "//button[text()='Да']"  # Кнопка "Да"
     DATE_FIELD = By.XPATH, "//input[@placeholder='* Когда привезти самокат']"  # Поле ввода даты
     CALENDAR = By.XPATH, "//div[@class='react-datepicker']"  # Календарь
@@ -28,5 +26,4 @@ class OrderPageLocators:
     RENT_FORM = By.XPATH, "//div[text()='Про аренду']"  # Раздел "Про аренду"
     ORDER_BUTTON_IN_FOOTER = By.XPATH, "//div[contains(@class, 'Home_FinishButton')]/button[text()='Заказать']"  # Кнопка "Заказать" на странице
     ORDER_BUTTON_IN_HEADER = By.XPATH, "//*[contains(@class, 'Header_Nav')]/button[text()='Заказать']"  # Кнопка "Заказать" в шапке
-    YANDEX_LOGO = By.XPATH, "//*[@alt='Yandex']"  # Логотип "Яндекс"
-    SCOOTER_LOGO = By.XPATH, "//*[@alt='Scooter']"  # Логотип "Самокат"
+

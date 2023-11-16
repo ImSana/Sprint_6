@@ -32,12 +32,13 @@ class MainPage(BasePage):
     def wait_for_get_answer(self):
         WebDriverWait(self.driver, 25).until(ec.visibility_of_element_located(MainPageLocators.ANSWER))
 
+    @allure.step('Клик по логотипу "Самокат"')
     def click_scooter_logo(self):
-        self.driver.find_element(*OrderPageLocators.SCOOTER_LOGO).click()
+        self.driver.find_element(*MainPageLocators.SCOOTER_LOGO).click()
 
     @allure.step('Клик по логотипу "Яндекс"')
     def click_yandex_logo(self):
-        self.driver.find_element(*OrderPageLocators.YANDEX_LOGO).click()
+        self.driver.find_element(*MainPageLocators.YANDEX_LOGO).click()
 
     @allure.step('Получить текст заголовка главной страницы')
     def get_main_header_text(self):
