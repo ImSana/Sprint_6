@@ -1,5 +1,6 @@
 class TextData:
     SUCCESSFUL_ORDER_TEXT = 'Заказ оформлен'
+    HEADER_TEXT = 'Самокат\nна пару дней\nПривезём его прямо к вашей двери,\nа когда накатаетесь — заберём'
 
 
 class ListData:

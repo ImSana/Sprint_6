@@ -25,8 +25,8 @@ class OrderPageLocators:
     ORDER_STATUS_BUTTON = By.XPATH, "//button[text()='Посмотреть статус']"  # Кнопка "Посмотреть статус"
     ONE_DAY = By.XPATH, "//div[contains(@class, 'Dropdown-option') and (text()='сутки')]"  # День
     TWO_DAY = By.XPATH, "//div[contains(@class, 'Dropdown-option') and (text()='двое суток')]"  # Два дня
-    BLACK_CHECKBOX = By.ID, "black"  # Черный цвет
-    GREY_CHECKBOX = By.ID, "grey"  # Серый цвет
     RENT_FORM = By.XPATH, "//div[text()='Про аренду']"  # Раздел "Про аренду"
-    ORDER_BUTTON_MAIN_PAGE = By.XPATH, "//div[contains(@class, 'Home_FinishButton')]/button[text()='Заказать']"  # Кнопка "Заказать" на странице
+    ORDER_BUTTON_IN_FOOTER = By.XPATH, "//div[contains(@class, 'Home_FinishButton')]/button[text()='Заказать']"  # Кнопка "Заказать" на странице
     ORDER_BUTTON_IN_HEADER = By.XPATH, "//*[contains(@class, 'Header_Nav')]/button[text()='Заказать']"  # Кнопка "Заказать" в шапке
+    YANDEX_LOGO = By.XPATH, "//*[@alt='Yandex']"  # Логотип "Яндекс"
+    SCOOTER_LOGO = By.XPATH, "//*[@alt='Scooter']"  # Логотип "Самокат"

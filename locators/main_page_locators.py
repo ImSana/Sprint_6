@@ -6,4 +6,4 @@ class MainPageLocators:
     QUESTIONS = By.XPATH, "//div[contains(@class, 'accordion__item')]"  # Вопросы
     ANSWER = By.XPATH, "//div[contains(@class, 'accordion__panel') and not(@hidden)]"  # Отображаемый ответ
     COOKIE_BUTTON = By.XPATH, "//button[contains(@class, 'App_CookieButton_')]"  # Кнопка "Да все привыкли"
-
+    HEADER_TEXT = By.XPATH, "//div[contains(@class, 'Home_Header')]"  # Заголовок на главной
