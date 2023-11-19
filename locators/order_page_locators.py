@@ -14,7 +14,6 @@ class OrderPageLocators:
     CONFIRM = By.XPATH, "//div[text()='Хотите оформить заказ?']"  # Диалог подтверждения
     YES_BUTTON = By.XPATH, "//button[text()='Да']"  # Кнопка "Да"
     DATE_FIELD = By.XPATH, "//input[@placeholder='* Когда привезти самокат']"  # Поле ввода даты
-    CALENDAR = By.XPATH, "//div[@class='react-datepicker']"  # Календарь
     BLACK_CHECKBOX = By.ID, "black"  # Черный цвет
     GREY_CHECKBOX = By.ID, "grey"  # Серый цвет
     RENTAL_PERIOD = By.XPATH, "//div[@class='Dropdown-root']"  # Поле срока аренды

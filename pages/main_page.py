@@ -9,7 +9,7 @@ from pages.base_page import BasePage
 class MainPage(BasePage):
 
     def click_cookie_button(self):
-        self.driver.find_element(*MainPageLocators.COOKIE_BUTTON).click()
+        self.click_to_element(*MainPageLocators.COOKIE_BUTTON)
 
     @allure.step('Пролистать до раздела "Вопросы о важном"')
     def scroll_to_questions(self):
@@ -34,11 +34,11 @@ class MainPage(BasePage):
 
     @allure.step('Клик по логотипу "Самокат"')
     def click_scooter_logo(self):
-        self.driver.find_element(*MainPageLocators.SCOOTER_LOGO).click()
+        self.click_to_element(MainPageLocators.SCOOTER_LOGO)
 
     @allure.step('Клик по логотипу "Яндекс"')
     def click_yandex_logo(self):
-        self.driver.find_element(*MainPageLocators.YANDEX_LOGO).click()
+        self.click_to_element(MainPageLocators.YANDEX_LOGO)
 
     @allure.step('Получить текст заголовка главной страницы')
     def get_main_header_text(self):

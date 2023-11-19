@@ -14,13 +14,11 @@ class BasePage:
 
     def click_to_element(self, locator):
         WebDriverWait(self.driver, 5).until(
-                expected_conditions.element_to_be_clickable(*locator))
+                expected_conditions.element_to_be_clickable(locator))
+        self.driver.find_element(*locator).click()
 
     def set_text_to_element(self, locator, text):
         self.driver.find_element(*locator).send_keys(text)
 
     def open_page(self, page):
         self.driver.get(page)
-
-    def wait_for_page_load(self, url):
-        WebDriverWait(self.driver, 10).until(ec.url_to_be(url))

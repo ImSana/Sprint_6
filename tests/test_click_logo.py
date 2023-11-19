@@ -16,7 +16,6 @@ class TestLogo:
         order_pages.open_page(DataUrls.ORDER_SCOOTER_URL)
         pages = MainPage(driver)
         pages.click_scooter_logo()
-        order_pages.wait_for_page_load(DataUrls.SCOOTER_URL)
         current_header_text = MainPage(driver).get_main_header_text()
         header_text = TextData.HEADER_TEXT
         assert driver.current_url == DataUrls.SCOOTER_URL and header_text == current_header_text
@@ -28,4 +27,4 @@ class TestLogo:
         order_pages.open_page(DataUrls.ORDER_SCOOTER_URL)
         pages = MainPage(driver)
         pages.click_yandex_logo()
-        assert driver.current_url != DataUrls.DZEN_URL
+        assert DataUrls.DZEN_URL not in driver.current_url

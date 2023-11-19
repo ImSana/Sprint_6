@@ -10,7 +10,7 @@ from pages.base_page import BasePage
 class OrderPages(BasePage):
 
     def click_cookie_button(self):
-        self.driver.find_element(*MainPageLocators.COOKIE_BUTTON).click()
+        self.click_to_element(MainPageLocators.COOKIE_BUTTON)
 
     @allure.step("Заполняем поле с именем")
     def set_name_to_field(self, name):
@@ -26,10 +26,8 @@ class OrderPages(BasePage):
 
     @allure.step("Заполняем поле с метро")
     def set_station(self, station):
-        self.driver.find_element(*OrderPageLocators.STATION_FIELD).send_keys(station)
-        WebDriverWait(self.driver, 10).until(ec.visibility_of_element_located(OrderPageLocators.STATION_DROPDOWN))
+        self.set_text_to_element(OrderPageLocators.STATION_FIELD, station)
         self.driver.find_element(*OrderPageLocators.STATION_DROPDOWN).click()
-        WebDriverWait(self.driver, 10).until(ec.invisibility_of_element(OrderPageLocators.STATION_DROPDOWN))
 
     @allure.step("Заполняем поле с телефоном")
     def set_number_to_field(self, number):
@@ -37,16 +35,15 @@ class OrderPages(BasePage):
 
     @allure.step('Клик по кнопке "Заказать" в шапке')
     def click_order_button_in_header(self):
-        self.driver.find_element(*OrderPageLocators.ORDER_BUTTON_IN_HEADER).click()
+        self.click_to_element(OrderPageLocators.ORDER_BUTTON_IN_HEADER)
 
     @allure.step('Клик по кнопке "Заказать" на странице ')
     def click_order_button_in_footer(self):
-        self.driver.find_element(*OrderPageLocators.ORDER_BUTTON_IN_FOOTER).click()
+        self.click_to_element(OrderPageLocators.ORDER_BUTTON_IN_FOOTER)
 
     @allure.step('Клик по кнопке "Далее"')
     def click_next_button(self):
-        WebDriverWait(self.driver, 10).until(ec.element_to_be_clickable(OrderPageLocators.NEXT_BUTTON))
-        self.driver.find_element(*OrderPageLocators.NEXT_BUTTON).click()
+        self.click_to_element(OrderPageLocators.NEXT_BUTTON)
 
     def create_order(self, client):
         self.set_name_to_field(client.get('name'))
@@ -55,20 +52,14 @@ class OrderPages(BasePage):
         self.set_station(client.get('station'))
         self.set_number_to_field(client.get('number'))
 
-    def wait_for_rent_form(self):
-        WebDriverWait(self.driver, 10).until(ec.visibility_of_element_located(OrderPageLocators.RENT_FORM))
-
     @allure.step('Заполняем поле "Дата"')
     def set_date(self, date):
-        self.driver.find_element(*OrderPageLocators.DATE_FIELD).send_keys(date)
-        WebDriverWait(self.driver, 10).until(ec.visibility_of_element_located(OrderPageLocators.CALENDAR))
-        self.driver.find_element(*OrderPageLocators.DATE_FIELD).send_keys(Keys.ENTER)
-        WebDriverWait(self.driver, 10).until(ec.invisibility_of_element(OrderPageLocators.CALENDAR))
+        self.set_text_to_element(OrderPageLocators.DATE_FIELD, date)
+        self.set_text_to_element(OrderPageLocators.DATE_FIELD, Keys.ENTER)
 
     def select_rental_period(self, period):
-        self.driver.find_element(*OrderPageLocators.RENTAL_PERIOD).click()
-        WebDriverWait(self.driver, 10).until(ec.visibility_of_element_located(OrderPageLocators.RENTAL_PERIOD_DROPDOWN))
-        self.driver.find_element(*OrderPageLocators.ONE_DAY).click()
+        self.click_to_element(OrderPageLocators.RENTAL_PERIOD)
+        self.click_to_element(OrderPageLocators.ONE_DAY)
 
     @allure.step("Выбираем самокат чёрного цвета")
     def click_checkbox(self, color):
@@ -76,12 +67,11 @@ class OrderPages(BasePage):
 
     @allure.step('Заполняем поле "Комментарий"')
     def set_comment(self, comment):
-        self.driver.find_element(*OrderPageLocators.COMMENT_FIELD).send_keys(comment)
+        self.set_text_to_element(OrderPageLocators.COMMENT_FIELD, comment)
 
     @allure.step('Клик по кнопке "Заказ"')
     def click_order_button(self):
-        WebDriverWait(self.driver, 10).until(ec.element_to_be_clickable(OrderPageLocators.ORDER_BUTTON))
-        self.driver.find_element(*OrderPageLocators.ORDER_BUTTON).click()
+        self.click_to_element(OrderPageLocators.ORDER_BUTTON)
 
     @allure.step('Заполнить раздел "Про аренду"')
     def input_rental_information(self, rental_data):
@@ -98,7 +88,7 @@ class OrderPages(BasePage):
 
     @allure.step('Клик по кнопке "Да" в диалоге подтверждения')
     def click_confirmation_order(self):
-        self.driver.find_element(*OrderPageLocators.YES_BUTTON).click()
+        self.click_to_element(OrderPageLocators.YES_BUTTON)
 
     def wait_for_order_completed(self):
         WebDriverWait(self.driver, 10).until(ec.visibility_of_element_located(OrderPageLocators.ORDER_COMPLETED))
